@@ -1,0 +1,76 @@
+{
+  "non_song": [
+    {
+      "pattern": "nounc",
+      "why": "Al's between-song announcements. Tapers write it \"al.nouncements\", \"Al.nouncments\" and \"al.nouncement\" -- matching \"nounc\" catches the lot, where matching \"unceme\" would miss the spelling with no 'e' after the 'c'."
+    },
+    {
+      "pattern": "nownc",
+      "why": "\"Alnowncements\". The \"nounc\" spelling was chosen to catch every way a taper writes Al's announcements, and this one still got past it: squashed it reads \"alnowncements\", with a 'w' where the 'u' belongs. It sat in the vocabulary as a song with n=1 and a median of 85 seconds."
+    },
+    {
+      "pattern": "introduction",
+      "why": "Not a moe. song. It is a hype MC introducing the band, and he does it with very consistent timing -- which is exactly what makes it dangerous: it looks like a tight, reliable 90-second opener and a length model would believe it."
+    },
+    "^tunn?ing",
+    "tunn?ing$",
+    "^tuneup$",
+    {
+      "pattern": "banter",
+      "why": "Between-song stage talk, never a titled performance. Free-floating so it also catches \"Crowd Banter\" and \"Break/Banter\"."
+    },
+    "^crowd",
+    "^applause$",
+    "^silence$",
+    "^setbreak$",
+    "^soundcheck$",
+    "^intermission$",
+    "intros$",
+    "^inro$",
+    {
+      "pattern": "comments",
+      "why": "Stage business, not a song: \"adjustments & comments\", \"comments & calling up Andy\"."
+    },
+    {
+      "pattern": "shoutouts",
+      "why": "Stage business: \"Break/ Shout Outs\"."
+    },
+    {
+      "pattern": "changerobsamp",
+      "why": "Gear business. Spelled out in full rather than reaching for a pattern like \"amp$\", which would take Vamp and anything else ending that way with it."
+    },
+    "^happybirthday",
+    "^goodnight",
+    "speaks$",
+    "^shtick$",
+    "^odeto",
+    {
+      "pattern": "proclamation",
+      "why": "moe.day is the band's own festival and a \"moe.day Proclamation\" is Al reading it out, not a song."
+    },
+    "^jam$",
+    "^chat$",
+    {
+      "pattern": "performingas",
+      "why": "A note the description parser mistook for a song."
+    },
+    {
+      "pattern": "releasedrecordings",
+      "why": "A note the description parser mistook for a song."
+    },
+    {
+      "pattern": "othermerchandise",
+      "why": "A note the description parser mistook for a song."
+    },
+    "teases?$",
+    "^bringingout",
+    "^noodling",
+    "^intro",
+    "intro$",
+    "^encorebreak$",
+    {
+      "pattern": "reprise",
+      "why": "The setlist sometimes labels a reprise outright -- \"Moth (reprise)\". Take it at its word: a reprise is real music but it is not a performance of the song, and it drags the median down exactly like the unlabelled ones we catch by ear."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# No AI planning artifacts in version control -- same rule as setlistkit. Design docs, plans,
+# and scratch stay out of history. The exception is agent instruction files (CLAUDE.md,
+# AGENTS.md): those ARE committed on purpose, because this pack doubles as a worked example
+# of how to build your own, and the instructions are part of the lesson.
+docs/specs/
+docs/plans/
+docs/design/
+
+# python
+__pycache__/
+*.pyc

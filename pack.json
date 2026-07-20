@@ -1,0 +1,8 @@
+{
+  "name": "moe",
+  "version": "1.0.0",
+  "description": "Canonical song catalog and normalization policy for moe.",
+  "sources": [
+    "setlist.fm"
+  ]
+}
