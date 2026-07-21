@@ -19,6 +19,10 @@
       "pattern": "banter",
       "why": "Between-song stage talk, never a titled performance. Free-floating so it also catches \"Crowd Banter\" and \"Break/Banter\"."
     },
+    {
+      "pattern": "greeting",
+      "why": "\"Greeting By Al\" -- Al saying hello to the room. This lived in setlistkit's generic junk filter, which DROPS, and that was the wrong side of the line: a greeting happened on the stage and is not music, which makes it a tag. Dropped, the corpus lost the fact that the band opened by talking. Free-floating so it also catches \"Greetings\" and \"Al's Greeting\"; checked against all 306 squashed titles for an accidental cross-word match (\"The Ogre Eating\" squashes to theogreeating, not theogreeting) and there is none."
+    },
     "^crowd",
     "^applause$",
     "^silence$",
