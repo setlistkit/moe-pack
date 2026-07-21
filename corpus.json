@@ -22,15 +22,6 @@
       "why": "Band-member surnames. Tapers write them beside a sit-in or a solo credit -- 'Rob Derhak just vocals' -- and the credit becomes a song. Safe to drop outright because no moe. title contains one; lint holds this against the vocabulary, the aliases and the protected titles on every run, so the day that stops being true it says so."
     },
     {
-      "pattern": "a\\s+team",
-      "why": "Ported from the old parser's junk list with no recorded explanation, and I could not reconstruct one from the corpus or from the source it came from. Kept because removing it is a change nobody has evidence for, and moved here because nothing generic justifies it for a band whose tapers have never written it. Worth a corpus check the first time ingest runs: if it matches nothing, delete it."
-    },
-    {
-      "pattern": "home\\s+team",
-      "why": "Same as 'a team' -- ported with no recorded explanation, kept rather than silently dropped, and parked here rather than in the generic filter. Check it against the corpus and delete it if it is dead. The counter-examples are the reason it is two words bounded on both sides: moe. has four titles ending in 'Home' and one that starts 'Homeward', and a fragment of just 'home' would have taken the lot.",
-      "must_not_match": ["Homeward Bound", "Letter Home", "Bring It Back Home"]
-    },
-    {
       "pattern": "inverted\\s+version",
       "why": "A note about HOW a song was played, not a thing that was played, so the entry is an annotation and drops. Ported from the old parser; the phrasing is one taper's, which is why it belongs to this pack rather than to the generic annotation filter."
     }
@@ -52,10 +43,6 @@
     {
       "pattern": "ela",
       "why": "As 'kcy'. Three letters, no recorded expansion, appeared in lineage preambles."
-    },
-    {
-      "pattern": "cf",
-      "why": "As 'kcy', and the riskiest of them: two letters. Every rule that drops is guarded -- the parser asks the vocabulary, the aliases and the protected list before it applies any of them -- so a collision here is inert rather than fatal, but a two-letter token is still the wrong thing to ship as generic. Check it against the corpus and delete it if it is dead."
     }
   ]
 }

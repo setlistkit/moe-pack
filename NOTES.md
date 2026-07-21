@@ -93,3 +93,37 @@ The third is not.
 (For the record: a passing suggestion that TLH stood for "The Last Hurrah" turned out to be
 made up -- that title appears nowhere in the data. Checked against the corpus before believing
 it, which is the whole point.)
+
+## Three rules deleted for having no reason
+
+`a\s+team` and `home\s+team` (junk) and `cf` (gear) came over from the old parser's word lists
+and shipped here carrying an admission instead of an explanation: nobody could say what they
+were for. Each one's `why` ended by asking a future reader to check it against the corpus and
+delete it if it turned out to be dead.
+
+They are deleted now, without waiting for that check.
+
+The rule this pack follows from here: **a filter that cannot say why it exists does not get
+grandfathered in.** Keeping one is not the cautious option, it is the expensive one. Every rule
+in this file DROPS what it matches, which means it removes an entry without recording that
+anything was there, and the vocabulary guard only protects titles the pack already names -- so
+the only thing an unexplained rule can eat is a song nobody has written down yet. That is
+precisely the class of loss nothing downstream can detect or recover. "We are not sure what this
+does" and "this silently deletes data" are a bad pair to hold at once, and the tie goes to
+deletion.
+
+`a\s+team` also turned out to be wider than it looked. Bounded by non-word edges it still matches
+"a team" inside any ordinary phrase -- `what a team` matches -- which is a lot of reach for a
+rule with no stated purpose.
+
+The four remaining unexplained gear tokens (`kcy`, `nbob`, `pfa`, `ela`) are deliberately kept.
+They are not in the same position: what is missing for them is the *expansion*, not the reason.
+Each one has a recorded observation behind it -- it appeared in this band's taper lineage
+preambles, which is a preamble and not a setlist. That is a why, even if a thin one. `cf` went
+with the other two because it is two letters, which is the shape that once deleted ATL and NYC.
+
+**Back pocket.** If unexplained junk starts showing up in the corpus later -- a title that reads
+like a taper's aside, something involving the words "team", or a stray `cf` in a lineage line --
+this is the first place to look. The deletions were a deliberate call made without evidence
+either way, and re-adding one with an actual example attached would be a better entry than any
+of the three that were removed.
