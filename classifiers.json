@@ -65,6 +65,62 @@
     {
       "pattern": "reprise",
       "why": "The setlist sometimes labels a reprise outright -- \"Moth (reprise)\". Take it at its word: a reprise is real music but it is not a performance of the song, and it drags the median down exactly like the unlabelled ones we catch by ear."
+    },
+    {
+      "pattern": "^break$",
+      "why": "A set break, written bare. The pack already tags ^setbreak$ and ^encorebreak$; this is the same event with the qualifier left off, and it is the single most common non-song token on these tapes. Anchored because 'break' is a substring of ordinary words and a free-floating version would reach a title eventually."
+    },
+    {
+      "pattern": "^drum[sz]$",
+      "why": "A drum segment. Tagged and not dropped because it happened on stage: Rule Two says a DROP may only answer 'is this an entry', and this was one. Covers the 'drumz' spelling, which is the same segment written by a different taper."
+    },
+    {
+      "pattern": "^drumsolo$",
+      "why": "As ^drum[sz]$: a performance segment, not a titled song."
+    },
+    {
+      "pattern": "^basssolo$",
+      "why": "As ^drumsolo$."
+    },
+    {
+      "pattern": "^outro$",
+      "why": "The closing counterpart to the intro rules already here. Stage business."
+    },
+    {
+      "pattern": "^audience$",
+      "why": "A note that the recording is of the room, not a performance under this name."
+    },
+    {
+      "pattern": "^acoustic$",
+      "why": "A segment marker: the band played acoustic, which is a fact about how the music was played rather than a song."
+    },
+    {
+      "pattern": "^oneset$",
+      "why": "A note that the show was played as a single set."
+    },
+    {
+      "pattern": "^afternoon(set)?$",
+      "why": "An afternoon set at a festival. A label for a performance, not a title."
+    },
+    {
+      "pattern": "^night$",
+      "why": "A set label on multi-night runs. Anchored: several moe. titles are single generic words and a free-floating 'night' would reach them."
+    },
+    {
+      "pattern": "^(nye)?countdown$",
+      "why": "The New Year's Eve countdown. It happens on stage and is not a song."
+    },
+    {
+      "pattern": "^alonmandolin$",
+      "why": "Al on mandolin: an instrument note. All three spellings in the corpus squash to this."
+    },
+    {
+      "pattern": "^untitled$",
+      "why": "A performance the taper had no name for. Tagged and not dropped: something was played, and Rule Two reserves DROP for text that was never an entry."
+    },
+    {
+      "pattern": "^newchucksong$",
+      "why": "An unnamed new song, annotated rather than titled. A tag and not a drop, because something was performed -- the taper just had no name for it."
     }
   ]
 }

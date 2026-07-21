@@ -4,14 +4,12 @@
     "2022-02-24": "Everyone Orchestra (Matt Butler). An improv all-star jam featuring Derhak and Schnier. Nothing played that night is evidence about what moe. plays at a moe. show.",
     "2025-10-31": "Halloween. The band played MONTY PYTHON: 'JAMALOT', 'Ni!', 'Brave Sir Robin', 'Camelot', 'Bring Out Your Dead', 'Icky Icky Icky', 'Monk's Chant'. Those are bits, not songs, and they were sitting in the vocabulary as things moe. might play next week. The real songs buried in that set (Meat, Rebubula, The Pit) are lost with it, and that is the right trade: a costume show is not evidence about an ordinary Tuesday, and its fake titles poison the vocabulary for every show that is."
   },
-
   "date_overrides": {
     "moe2024-06-14": {
       "date": "2025-06-14",
       "why": "moe. did not play on 2024-06-14; the show does not exist. This is set two of 2025-06-14. The taper's own description reads 'June 14 2025'; the artwork file is named Northlands25_1500x787+sm.jpg; it was uploaded 2025-07-10, four weeks after the 2025 show and thirteen months after the date it claims; setlist.fm has no moe. show on 2024-06-14 and one on 2025-06-14; and its six tracks (07-12: Okayalright, Seat of My Pants, Puebla into Timmy Tucker, Space Truckin', Opium, It) map exactly onto slots 7-13 of the 2025-06-14 setlist, in order. The description says 'set two', which is why the tracks start at 07. Note the counter-example: moe2023-02-25.ca14.flac16 has the same symptom -- a year mismatch between its date and its description -- and is NOT mis-dated. The taper typo'd their own notes. Same tell, opposite answer, which is why an entry here has to carry more than the tell."
     }
   },
-
   "junk_patterns": [
     {
       "pattern": "umphrey|nate\\s+wilson|pink\\s*floyd|allman|golden\\s+earring|grateful\\s+dead|phish|jethro\\s+tull|perpetual\\s+groove",
@@ -24,9 +22,96 @@
     {
       "pattern": "inverted\\s+version",
       "why": "A note about HOW a song was played, not a thing that was played, so the entry is an annotation and drops. Ported from the old parser; the phrasing is one taper's, which is why it belongs to this pack rather than to the generic annotation filter."
+    },
+    {
+      "pattern": "\\bdisc\\s+(one|two|three|four)\\b",
+      "why": "A disc boundary in the tape, never a setlist entry."
+    },
+    {
+      "pattern": "^\\W*con'?t(?:.?d|inued)?\\W*$",
+      "why": "A continuation marker where a song spans a disc or file boundary. Covers '(cont.)', 'cont', 'contd' and 'continued', which all squash to one of these."
+    },
+    {
+      "pattern": "^\\W*thanks\\W*$",
+      "why": "The taper thanking someone. Not an entry."
+    },
+    {
+      "pattern": "^moe$",
+      "why": "The band's own name, written where a title should be. Anchored hard: 'moe' is a substring of several real titles including moe. Wrap City."
+    },
+    {
+      "pattern": "\\bfirst\\s+time\\s+played\\b",
+      "why": "An annotation about a song, arriving where the song should be."
+    },
+    {
+      "pattern": "ftp",
+      "why": "The same annotation abbreviated."
+    },
+    {
+      "pattern": "\\babout\\s+these\\s+tapes\\b",
+      "why": "A section header in the taper's notes."
+    },
+    {
+      "pattern": "^\\W*setlist\\W*$",
+      "why": "A section header in the taper's notes."
+    },
+    {
+      "pattern": "^note$",
+      "why": "A section header in the taper's notes."
+    },
+    {
+      "pattern": "^\\W*ii\\W*$",
+      "why": "A roman-numeral set marker."
+    },
+    {
+      "pattern": "^\\W*no\\W*$",
+      "why": "A fragment left behind by a note the description parser split."
+    },
+    {
+      "pattern": "^\\W*call\\s+for\\W*$",
+      "why": "A sentence fragment from a taper note."
+    },
+    {
+      "pattern": "^questions$",
+      "why": "A sentence fragment from a taper note."
+    },
+    {
+      "pattern": "^location$",
+      "why": "A field label from a taper's notes."
+    },
+    {
+      "pattern": "^debut$",
+      "why": "An annotation about a song, arriving where the song should be."
+    },
+    {
+      "pattern": "^converstion$",
+      "why": "A misspelled field label from a taper's notes."
+    },
+    {
+      "pattern": "^nh$",
+      "why": "A state abbreviation left over from a location line."
+    },
+    {
+      "pattern": "\\bsnoe\\.?\\s*down\\s+festival\\b",
+      "why": "The band's own festival. A place, not a performance."
+    },
+    {
+      "pattern": "\\bplease\\s+support\\s+artists\\s+and\\s+venues\\b",
+      "why": "Half of the taping-policy sentence, split across two entries by the description parser."
+    },
+    {
+      "pattern": "\\bthat\\s+allow\\s+taping\\b",
+      "why": "The other half of the same sentence."
+    },
+    {
+      "pattern": "^\\W*moe\\.?\\s+is\\b",
+      "why": "A fragment of the band's boilerplate biography."
+    },
+    {
+      "pattern": "\\bmoe\\.?\\s*speak\\b",
+      "why": "A section header in the taper's notes."
     }
   ],
-
   "gear_patterns": [
     {
       "pattern": "kcy",
@@ -43,6 +128,26 @@
     {
       "pattern": "ela",
       "why": "As 'kcy'. Three letters, no recorded expansion, appeared in lineage preambles."
+    },
+    {
+      "pattern": "^sdhc$",
+      "why": "The memory card the recording was made on. Lineage, not a song."
+    },
+    {
+      "pattern": "\\bsdhc\\s+card\\b",
+      "why": "A lineage line naming the transfer step."
+    },
+    {
+      "pattern": "^usb$",
+      "why": "Lineage: the transfer interface."
+    },
+    {
+      "pattern": "^harddrive$",
+      "why": "Lineage: the storage the transfer landed on."
+    },
+    {
+      "pattern": "^laptop$",
+      "why": "Lineage: the machine the transfer ran on."
     }
   ]
 }
