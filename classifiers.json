@@ -25,10 +25,8 @@
     },
     "^crowd",
     "^applause$",
-    "^silence$",
     "^setbreak$",
     "^soundcheck$",
-    "^intermission$",
     "intros$",
     "^inro$",
     {
@@ -56,14 +54,6 @@
     "^chat$",
     {
       "pattern": "performingas",
-      "why": "A note the description parser mistook for a song."
-    },
-    {
-      "pattern": "releasedrecordings",
-      "why": "A note the description parser mistook for a song."
-    },
-    {
-      "pattern": "othermerchandise",
       "why": "A note the description parser mistook for a song."
     },
     "teases?$",
