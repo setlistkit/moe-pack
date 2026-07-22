@@ -1,12 +1,12 @@
 {
   "non_song": [
     {
-      "pattern": "nounc",
-      "why": "Al's between-song announcements. Tapers write it \"al.nouncements\", \"Al.nouncments\" and \"al.nouncement\" -- matching \"nounc\" catches the lot, where matching \"unceme\" would miss the spelling with no 'e' after the 'c'."
+      "pattern": "no[uw]n?c",
+      "why": "Al's between-song announcements, in every spelling tapers reach for. This replaces \"nounc\" and \"nownc\", which were added one at a time as each new misspelling surfaced -- and the first of them claimed in this very field to \"catch the lot\", while \"al.noucements\", \"Alnoucemnts\", \"annoucements\" and \"more annoucements\" all walked straight past it and into the vocabulary as songs with medians. The pattern now allows the 'n' to go missing and the 'u' to be typed as a 'w', which is the whole family: 136 distinct corpus entries match, against zero titles in vocabulary.json and zero in protected.json. Anchoring is not needed and would hurt -- these arrive welded to other stage business (\"Crowd/Banter/al.nouncements\", \"break/raffle/al.nouncements\")."
     },
     {
-      "pattern": "nownc",
-      "why": "\"Alnowncements\". The \"nounc\" spelling was chosen to catch every way a taper writes Al's announcements, and this one still got past it: squashed it reads \"alnowncements\", with a 'w' where the 'u' belongs. It sat in the vocabulary as a song with n=1 and a median of 85 seconds."
+      "pattern": "^callback",
+      "why": "Al calling back to something said earlier in the night -- \"callback\", \"call back\", \"Callback / Crowd\". It was published as a song with n=6 and a median of 3:40. Anchored, because a call-back is always what the entry OPENS with, and free-floating it would eventually reach a lyric-shaped title."
     },
     {
       "pattern": "introduction",
