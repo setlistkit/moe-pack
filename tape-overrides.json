@@ -1,0 +1,27 @@
+{
+  "tapes": {
+    "moe2007-06-10": {
+      "why": "Taper royally messed up the data entry on track labels and in the description. He duplicated 'kids' at track 10, and every label from 11 to 13 then sits one behind the truth until the 1:56 announcements track absorbs the slack and he resumes correctly at the encore. Both the file titles and his written description carry the same error -- he wrote them from the same notes -- so nothing corroborates it and no amount of parsing recovers it. The damage: a 23:53 Recreational Chemistry was filed as Blue Jeans Pizza and the 1:56 announcements were published as a Recreational Chemistry, which drew the Top 40 chart's whisker back to nearly zero. One taper on this night, so nothing disagreed with him.",
+      "found_by": "tim",
+      "date_added": "2026-07-22",
+      "tracks": [
+        "intro",
+        "the road",
+        "stranger than fiction",
+        "spine of a dog",
+        "captain america >",
+        "waiting for the punchline",
+        "skrunk",
+        "the pit",
+        "kids",
+        "wind it up",
+        "blue jeans pizza",
+        "recreational chemistry",
+        "announcement",
+        "e. okayalright",
+        "e. the weight",
+        "e. rebubula"
+      ]
+    }
+  }
+}
