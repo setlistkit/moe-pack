@@ -151,10 +151,10 @@
     }
   ],
 
-  "acoustic_patterns": [
+  "side_project_patterns": [
     {
       "pattern": "moe\\.?stly",
-      "why": "moe.'s own billing for an acoustic night: Al and Rob as a duo, dot optional, since tapers write it both ways. Matched on the BRAND name and never on the bare word 'acoustic' -- tapers list their gear in the description, 'percussion, MalletKat, flute, acoustic guitar' is not an acoustic show, and matching the bare word swept in New Year's Eve and six other full electric nights. This matters because a duo plays the same songs shorter: one song that runs 18.8 minutes electric runs 6.4 acoustic, so pooling the two averages distributions that have nothing to do with each other. A tagged night is left out of every length distribution and stays in the corpus for everything else."
+      "why": "moe.'s billing for an acoustic duo night: Al and Rob, dot optional, since tapers write it both ways. This is a REFUSAL and not an acoustic tag, because it is not the band playing quieter -- it is two of five members, and fifteen songs by a duo are not fifteen plays by moe. Left in, they enter the rotation model and the base rates as ordinary plays and answer 'what will the band open with' with a night the band did not play. Fourteen dates, 206 songs. Matched on the BRAND name and never on the bare word 'acoustic': tapers list their gear in the description, 'percussion, MalletKat, flute, acoustic guitar' is not an acoustic show, and matching the bare word swept in New Year's Eve and six other full electric nights. Matched against the tape's whole text rather than its title, because twelve of the fourteen are titled 'moe. Live at ...' like any other show and name the billing further down. The New Year's Eve shows with an acoustic set inside them are NOT this: the band is all there, so they stay in the corpus and are tagged mixed."
     }
   ]
 }
