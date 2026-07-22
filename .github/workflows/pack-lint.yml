@@ -1,0 +1,57 @@
+name: pack lint
+
+# The pack is data, and the only thing that makes it trustworthy is that a current setlistkit
+# still accepts it. So this installs the sibling repo's default branch, not a pinned release:
+# when a new linter rule lands upstream that this pack violates, this is where it should
+# surface, and it should surface the day it lands rather than the next time someone happens
+# to run the lint by hand.
+on: push
+
+# Read-only, and nothing more is needed. setlistkit is public, so pip reaches it over https
+# with no PAT and no deploy key to keep alive.
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      # No second checkout: pip clones the repo itself. No `@main` either -- a bare VCS URL
+      # resolves to the remote's default branch, which is what "latest" means here and stays
+      # true if that branch is ever renamed.
+      #
+      # This is the core install. `slkit pack lint` needs the catalog layer and jsonschema;
+      # the report extra and the dev tooling are not on this path, and installing them would
+      # only add ways for this job to fail for reasons that are not about the pack.
+      - name: Install setlistkit
+        shell: bash
+        run: |
+          pip install "git+https://github.com/setlistkit/setlistkit.git"
+          # pip records the commit it resolved to in direct_url.json. Surfacing it means a red
+          # run names the upstream commit to go read, which the version number could not --
+          # setlistkit's VERSION moves far more slowly than its default branch does.
+          sha=$(python -c 'import importlib.metadata as md, json; print(json.loads(md.distribution("setlistkit").read_text("direct_url.json"))["vcs_info"]["commit_id"])')
+          echo "Linted against setlistkit \`${sha:0:12}\`" >> "$GITHUB_STEP_SUMMARY"
+
+      # No config file and no data_root, which is the supported standalone case: `pack lint
+      # --pack PATH` has always run with neither, and the corpus-aware checks report themselves
+      # skipped rather than failing. A nonzero exit therefore means real errors in the pack.
+      #
+      # The output goes to the job summary as well as the log so the finding is readable from
+      # the run page without opening the step. `|| status=$?` rather than a bare pipeline: the
+      # shell runs with -e, and we still want the closing fence written on a failing lint.
+      - name: slkit pack lint
+        shell: bash
+        run: |
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          slkit pack lint --pack . 2>&1 | tee -a "$GITHUB_STEP_SUMMARY" || status=$?
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          exit "${status:-0}"
