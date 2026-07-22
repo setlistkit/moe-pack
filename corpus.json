@@ -149,5 +149,12 @@
       "pattern": "^laptop$",
       "why": "Lineage: the machine the transfer ran on."
     }
+  ],
+
+  "acoustic_patterns": [
+    {
+      "pattern": "moe\\.?stly",
+      "why": "moe.'s own billing for an acoustic night: Al and Rob as a duo, dot optional, since tapers write it both ways. Matched on the BRAND name and never on the bare word 'acoustic' -- tapers list their gear in the description, 'percussion, MalletKat, flute, acoustic guitar' is not an acoustic show, and matching the bare word swept in New Year's Eve and six other full electric nights. This matters because a duo plays the same songs shorter: one song that runs 18.8 minutes electric runs 6.4 acoustic, so pooling the two averages distributions that have nothing to do with each other. A tagged night is left out of every length distribution and stays in the corpus for everything else."
+    }
   ]
 }
