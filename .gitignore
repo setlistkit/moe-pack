@@ -9,3 +9,4 @@ docs/design/
 # python
 __pycache__/
 *.pyc
+.vscode
