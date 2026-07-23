@@ -127,3 +127,41 @@ like a taper's aside, something involving the words "team", or a stray `cf` in a
 this is the first place to look. The deletions were a deliberate call made without evidence
 either way, and re-adding one with an actual example attached would be a better entry than any
 of the three that were removed.
+
+## The Rebubula/Akimbo/Tambourine splinters
+
+`song_length_stats` was publishing typos as songs. `Rububula` -- one character off `Rebubula` --
+had its own entry with a 7:08 median computed from a single mistimed track, sitting beside the
+real `Rebubula`'s 380-play, 16:45 median. Same shape for `Akimba` next to `Akimbo` and
+`EncTambourine` next to `Tambourine`.
+
+Two independently reasonable settings intersected into the blind spot. `canonicalize`'s fuzzy
+match cuts off at 0.9, and every one of these splinters scores just under it -- a one-character
+typo in an eight-character word lands around 0.875. And `slkit pack lint`'s unknown-title finding
+only reports a name once it has been played 8+ times, which is the right floor for "which songs
+are we missing" and the wrong one for "which fake songs are we publishing": a splinter only has
+to be minted once to sit beside a real song's statistics looking exactly as confident.
+
+Ten entries went into `aliases.json`: the seven misspellings themselves, plus three variants
+carrying stray punctuation the corpus was producing (`Rebubula —`, `Akimbo &`, `(x)Rebubula`).
+Tim ruled `Wind It` a truncation of `Wind It Up` on 2026-07-22, after confirming the vocabulary
+offers exactly one candidate it could plausibly be and no competing "Wind It" song anywhere in
+the corpus.
+
+A separate defect fell out of the same measurement: `vocabulary.json` held `"Californ IA"` with a
+stray space inside the entry itself. Removing it gives `CalifornIA`, which normalizes to exactly
+`california` -- the space was never part of the name, it was a data-entry slip that also happened
+to push the corpus's `Calyfornia` typo below even the fuzzy-match floor for its own real target.
+
+Eight `non_song` rules went into `classifiers.json` for a different class of the same bug: cover
+artist names (`Led Zeppelin`, `Steely Dan`, `Blind Melon`, `= Genesis`) and taper credits (`A
+Team Dirty South Recording`, `Rob Clarke`, `Adobe Audition`, `Total tracks =`) leaking in as
+their own titles. `Total tracks =` is the interesting one: it was already stored `non_song = 0`,
+meaning it had already slipped past every existing classifier, and only the unknown-title lookup
+in `slkit pack lint` ever caught it. Both checks stay, because they catch different things and
+neither one subsumes the other.
+
+The mechanism half of the fix is a new `slkit pack lint` finding that reports a near-miss
+unknown title at ANY play count, not just above the usual noise floor -- so the next Rububula
+gets caught before it ships, rather than found by someone reading a length chart and wondering
+why a 7:08 song has 380 more real plays sitting one row above it.
