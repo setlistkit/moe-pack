@@ -121,6 +121,38 @@
     {
       "pattern": "^newchucksong$",
       "why": "An unnamed new song, annotated rather than titled. A tag and not a drop, because something was performed -- the taper just had no name for it."
+    },
+    {
+      "pattern": "^ledzeppelin$",
+      "why": "A cover artist's name leaking in on its own, from an annotation the description parser did not fully absorb -- not a moe. song. Found by cross-referencing the unknown-title lookup against the 2020+ measurement in the songbook design doc; classifier gap, not an alias gap."
+    },
+    {
+      "pattern": "^steelydan$",
+      "why": "As ^ledzeppelin$: a cover artist credited beside a song, surviving as its own entry."
+    },
+    {
+      "pattern": "^blindmelon$",
+      "why": "As ^ledzeppelin$."
+    },
+    {
+      "pattern": "^genesis$",
+      "why": "A cover artist credit (\"= Genesis\") that survived as its own entry once the leading = was squashed away by squash()."
+    },
+    {
+      "pattern": "^ateamdirtysouthrecording$",
+      "why": "A taper crew credit (\"A Team Dirty South Recording\"), not a song."
+    },
+    {
+      "pattern": "^robclarke$",
+      "why": "A taper credit, not a song."
+    },
+    {
+      "pattern": "^adobeaudition$",
+      "why": "The editing software a taper credits in their post-production notes, not a song."
+    },
+    {
+      "pattern": "^totaltracks$",
+      "why": "A tracklist header (\"Total tracks =\") that survived as its own entry. Stored non_song = 0 AND out-of-vocab in the 2020+ measurement -- the classifier missed it and only the unknown-title lookup caught it, which is why both checks are run and neither is treated as subsuming the other."
     }
   ]
 }
