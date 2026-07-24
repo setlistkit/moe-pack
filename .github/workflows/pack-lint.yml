@@ -5,7 +5,16 @@ name: pack lint
 # when a new linter rule lands upstream that this pack violates, this is where it should
 # surface, and it should surface the day it lands rather than the next time someone happens
 # to run the lint by hand.
-on: push
+#
+# Two triggers make "the day it lands" literally true. `push` covers changes to the pack
+# itself. `repository_dispatch` is the sibling talking: setlistkit's CI fires a
+# `setlistkit-updated` event once its own checks pass on main, so a new upstream rule
+# re-lints this pack against the very commit that introduced it -- no wait for the next
+# unrelated push here. The two paths run the identical job; only what wakes it differs.
+on:
+  push:
+  repository_dispatch:
+    types: [setlistkit-updated]
 
 # Read-only, and nothing more is needed. setlistkit is public, so pip reaches it over https
 # with no PAT and no deploy key to keep alive.
